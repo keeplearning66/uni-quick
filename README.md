@@ -3,10 +3,10 @@
 ### 特性
 
 - [x] 集成`wot-design-uni`组件库
-- [x] 支持单位自动转换：`.env`文件中设置`VITE_ENABLE_UNIT_CONVERSION`(默认为`true`)和设计稿尺寸`VITE_UI_SIZE`(默认为`375`)
-      使用`UnoCSS`和`<style></style>`设置元素尺寸大小时可直接用设计稿中的`px`尺寸
-      编译后会自动转换为`rpx`尺寸(注意：内联样式和JS中的样式暂时不支持转换)
-      如果有部分情况不想进行转换，可以使用`mpx`(在`postcssUnitProcessor`中自定义不需要转换的单位)
+- [x] 支持单位自动转换：`.env`文件中设置`VITE_ENABLE_UNIT_CONVERSION`(默认为`true`)和设计稿尺寸`VITE_UI_SIZE`(默认为`375`)，
+      使用`UnoCSS`和`<style></style>`设置元素尺寸大小时可直接用设计稿中的`px`尺寸，
+      编译后会自动转换为`rpx`尺寸(注意：内联样式和JS中的样式暂时不支持转换)；
+      如果有部分情况不想进行转换，可以使用`mpx`(在`postcssUnitProcessor`中自定义不需要转换的单位)；
       `UnoCSS`vscode扩展建议用`0.61.6`版本，配置单位转换后只有低版本才支持智能提示
 - [x] 支持多环境打包构建
 - [x] 使用`pinia`状态管理
