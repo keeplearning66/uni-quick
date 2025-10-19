@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "antfu.unocss",
+    "vue.volar",
+    "dbaeumer.vscode-eslint",
+    "editorConfig.editorConfig",
+    "stylelint.vscode-stylelint",
+    "uni-helper.uni-helper-vscode",
+    "lokalise.i18n-ally"
+  ]
+}
