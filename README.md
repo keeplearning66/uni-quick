@@ -3,7 +3,7 @@
 ### 特性
 
 - [x] 集成 `wot-design-uni` 组件库
-- [x] 支持单位自动转换：`.env` 文件中设置 `VITE_ENABLE_UNIT_CONVERSION` (是否开启转换，默认为 `true` )和 `VITE_UI_SIZE` (设计稿尺寸，默认为 `375` )，使用 `UnoCSS` 和 `<style></style>` 设置元素尺寸大小时可直接用设计稿中的 `px` 尺寸，编译后会自动转换为 `rpx` 尺寸(注意：内联样式和 `JS` 中的样式暂时不支持转换)；如果有部分情况不想进行转换，可以使用 `mpx` (在 `postcssUnitProcessor` 中自定义不需要转换的单位)；`UnoCSS` VSCode 扩展建议用 `0.61.6` 版本，配置单位转换后只有低版本才支持智能提示
+- [x] 支持单位自动转换：`.env` 文件中设置 `VITE_ENABLE_UNIT_CONVERSION` (是否开启转换，默认为 `true` )和 `VITE_UI_SIZE` (设计稿尺寸，默认为 `375` )，使用 `UnoCSS` 和 `<style></style>` 设置元素尺寸大小时可直接用设计稿中的 `px` 尺寸，编译后会自动转换为 `rpx` 尺寸(注意：内联样式和 `JS` 中的样式暂时不支持转换)；如果有部分情况不想进行转换，可以使用 `mpx` (在 `postcssUnitProcessor` 中自定义不需要转换的单位)；`UnoCSS` 扩展建议用 `0.61.6` 版本，配置单位转换后只有低版本才支持智能提示
 - [x] 支持多环境打包构建
 - [x] 使用 `pinia` 状态管理
 - [x] 集成 `Alova.js` 请求工具集
@@ -12,8 +12,8 @@
 - [x] 集成 `ESLint`、`StyleLint`、`EditorConfig` 代码格式规范
 - [x] `Typescript` 支持
 - [x] 集成 `UnoCSS`
-- [x] 集成 `@iconify-json/mdi`图标库，搭配 `UnoCSS` 使用
-- [x] 集成 `z-paging`组件
+- [x] 集成 `@iconify-json/mdi` 图标库，搭配 `UnoCSS` 使用
+- [x] 集成 `z-paging` 组件
 - [x] 添加页面跳转拦截，登录权限校验
 - [x] 项目分包
 - [x] 集成 `rollup-plugin-visualizer` 包体积视图分析插件
