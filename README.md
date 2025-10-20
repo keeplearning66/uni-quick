@@ -2,33 +2,27 @@
 
 ### 特性
 
-- [x] 集成`wot-design-uni`组件库
-- [x] 支持单位自动转换：`.env`文件中设置`VITE_ENABLE_UNIT_CONVERSION`(默认为`true`)和设计稿尺寸`VITE_UI_SIZE`(默认为`375`)，
-      使用`UnoCSS`和`<style></style>`设置元素尺寸大小时可直接用设计稿中的`px`尺寸，
-      编译后会自动转换为`rpx`尺寸(注意：内联样式和JS中的样式暂时不支持转换)；
-      如果有部分情况不想进行转换，可以使用`mpx`(在`postcssUnitProcessor`中自定义不需要转换的单位)；
-      `UnoCSS`vscode扩展建议用`0.61.6`版本，配置单位转换后只有低版本才支持智能提示
+- [x] 集成 `wot-design-uni` 组件库
+- [x] 支持单位自动转换：`.env` 文件中设置 `VITE_ENABLE_UNIT_CONVERSION` (是否开启转换，默认为 `true` )和 `VITE_UI_SIZE` (设计稿尺寸，默认为 `375` )，使用 `UnoCSS` 和 `<style></style>` 设置元素尺寸大小时可直接用设计稿中的 `px` 尺寸，编译后会自动转换为 `rpx` 尺寸(注意：内联样式和 `JS` 中的样式暂时不支持转换)；如果有部分情况不想进行转换，可以使用 `mpx` (在 `postcssUnitProcessor` 中自定义不需要转换的单位)；`UnoCSS` VSCode扩展建议用 `0.61.6` 版本，配置单位转换后只有低版本才支持智能提示
 - [x] 支持多环境打包构建
-- [x] 使用`pinia`状态管理
-- [x] 集成`Alova.js`请求工具集
-- [x] 支持自动加载组件和`API`
-- [x] 自动校验`git`提交代码格式，格式如下：
-      `feat: 新增功能`
-      提交类型可参考`cz.config.js`
-- [x] 集成`ESLint`、`StyleLint`、`EditorConfig`代码格式规范
-- [x] `Typescript`支持
-- [x] 集成`UnoCSS`
-- [x] 集成`iconify`图标库
-- [x] 集成`z-paging`组件
+- [x] 使用 `pinia` 状态管理
+- [x] 集成 `Alova.js` 请求工具集
+- [x] 支持自动加载组件和 `API`
+- [x] 自动校验 `git` 提交代码格式，格式如下：`feat: 新增功能` 提交类型可参考 `cz.config.js`
+- [x] 集成 `ESLint`、`StyleLint`、`EditorConfig` 代码格式规范
+- [x] `Typescript` 支持
+- [x] 集成 `UnoCSS`
+- [x] 集成 `@iconify-json/mdi`图标库，搭配 `UnoCSS` 使用
+- [x] 集成 `z-paging`组件
 - [x] 添加页面跳转拦截，登录权限校验
 - [x] 项目分包
-- [x] 集成包体积视图分析插件
-- [x] 集成`vue-i18n`国际化插件
+- [x] 集成 `rollup-plugin-visualizer` 包体积视图分析插件
+- [x] 集成 `vue-i18n` 国际化插件
 
 ### 目录结构
 ```
 uni-quick
-├ build                 vite配置统一管理
+├ build                 vite 配置统一管理
 │  ├ config
 │  └ plugins
 ├ env                   环境变量
@@ -38,7 +32,7 @@ uni-quick
 ├ src
 │  ├ api                接口管理
 │  ├ components         公共组件
-│  ├ hooks              常用hooks封装
+│  ├ hooks              常用 hooks 封装
 │  ├ locale             国际化语言管理
 │  ├ pages              页面管理
 │  ├ plugins            插件管理
@@ -120,8 +114,8 @@ pnpm uvm-rm
 ```
 
 ### `v3` 代码块
-在 `vue` 文件中，输入 `v3` 按 `tab` 即可快速生成页面模板，可以大大加快页面生成。
-> 原理：基于 VSCode 代码块生成。
+在 `vue` 文件中，输入 `v3` 按 `tab` 即可快速生成页面模板
+> 原理：基于 VSCode 代码块生成
 
 ### 登录鉴权
 1. 页面如果需要登录才能访问，只需在 `pages.json` 文件中需要鉴权的页面下设置 `needLogin` 属性设置为 `true` 即可，比如
@@ -139,17 +133,10 @@ pnpm uvm-rm
 }
 ```
 
-2. 如果有`tab`页面需要登录才能访问，上面的设置在小程序中点击`tabbar`时无效，因为在小程序中点击`tabbar`不会触发`uni.switchTab`方法，下面是官方给出的回复及解决方案。
-
-> 拦截`uni.switchTab`本身没有问题。但是在微信小程序端点击`tabbar`的底层逻辑并不是触发`uni.switchTab`。所以误认为拦截无效，此类场景的解决方案是在`tabbar`页面的页面生命周期`onShow`中处理。
-
-可使用`getCurrentRoutePermission`
-
 ### 注意事项
-1. 微信小程序开发者工具中内置的打包分析不准确，本项目使用了`rollup-plugin-visualizer`来分析小程序包体积，默认不开启，有需要的移除相关注释即可
-2. 部分用户构建微信小程序如下错误，原因是微信开发者工具缺失了对应的依赖。
+1. 部分用户构建微信小程序如下错误，原因是微信开发者工具缺失了对应的依赖
 ```
 This @babel/plugin-proposal-private-property-in-object version is not meant to
 be imported.
 ```
-此时升级微信开发者工具，或者安装`@babel/plugin-proposal-private-property-in-object`依赖即可解决问题。
+此时升级微信开发者工具，或者安装`@babel/plugin-proposal-private-property-in-object`依赖即可解决问题
