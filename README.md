@@ -9,7 +9,7 @@
 - [x] 使用 `pinia` 状态管理
 - [x] 集成 `Alova.js` 请求工具集
 - [x] 支持自动加载组件和 `API`
-- [x] 自动校验 `git` 提交代码格式，格式如下：`feat: 新增功能` 提交类型可参考 `cz.config.js`
+- [x] 自动校验 `git` 提交信息格式，格式如下：`feat: 新增功能` 提交类型可参考 `cz.config.js`
 - [x] 集成 `ESLint`、`StyleLint`、`EditorConfig` 代码格式规范
 - [x] `Typescript` 支持
 - [x] 集成 `UnoCSS`
