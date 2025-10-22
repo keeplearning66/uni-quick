@@ -61,5 +61,8 @@ export default defineConfig(({ mode }): UserConfig => {
     esbuild: {
       drop: JSON.parse(env.VITE_DROP_CONSOLE) ? ['console', 'debugger'] : [],
     },
+    optimizeDeps: {
+      exclude: process.env.UNI_PLATFORM === 'h5' && process.env.NODE_ENV === 'development' ? ['wot-design-uni'] : [],
+    },
   };
 });
