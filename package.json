@@ -138,8 +138,8 @@
     "commit-msg": "node ./scripts/verify-commit.js"
   },
   "lint-staged": {
-    "src/**/*.{js,jsx,ts,tsx}": "eslint --fix",
-    "*.{scss,css,style,html}": "stylelint --fix",
+    "src/**/*.{js,jsx,ts,tsx,html}": "eslint --fix",
+    "*.{scss,css,style}": "stylelint --fix",
     "*.vue": [
       "eslint --fix",
       "stylelint --fix"
