@@ -11,8 +11,9 @@ import { loadEnv } from 'vite';
 import { getUnitConversionMultiple } from './build/config/index';
 
 const env = loadEnv('', fileURLToPath(new URL('./env', import.meta.url)));
-const enableUnitConversion = JSON.parse(env.VITE_ENABLE_UNIT_CONVERSION);
-const unitConversionMultiple = getUnitConversionMultiple(env);
+const { VITE_ENABLE_UNIT_CONVERSION, VITE_UI_SIZE } = env;
+const enableUnitConversion = JSON.parse(VITE_ENABLE_UNIT_CONVERSION);
+const unitConversionMultiple = getUnitConversionMultiple(+VITE_UI_SIZE);
 
 const { presetWeappAttributify, transformerAttributify } = extractorAttributify();
 

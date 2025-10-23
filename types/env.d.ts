@@ -17,6 +17,8 @@ interface ImportMetaEnv {
   VITE_ENABLE_UNIT_CONVERSION: string;
   /** 设计稿尺寸 */
   VITE_UI_SIZE: string;
+  /** 不转换的单位 */
+  VITE_NO_CONVERSION_UNIT: string;
 }
 
 interface ImportMeta {

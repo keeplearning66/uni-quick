@@ -1,4 +1,20 @@
-export const getUnitConversionMultiple = (env: Record<string, string>): number => {
-  const { VITE_UI_SIZE } = env;
-  return 750 / +VITE_UI_SIZE;
+export const getUnitConversionMultiple = (size: number): number => {
+  return 750 / size;
+};
+
+export const unitConversionProcessor = (enableUnitConversion: boolean, size: number, noConversionUnit: string) => {
+  const unitConversionMultiple = getUnitConversionMultiple(size);
+  return (value: number, unit: string) => {
+    if (!enableUnitConversion) {
+      return { value, unit };
+    }
+    if (unit === 'px') {
+      value *= unitConversionMultiple;
+      unit = 'rpx';
+    }
+    else if (unit === noConversionUnit) {
+      unit = 'px';
+    }
+    return { value, unit };
+  };
 };

@@ -3,12 +3,12 @@ import process from 'node:process';
 import { fileURLToPath, URL } from 'node:url';
 import postcssUnitProcessor from 'postcss-unit-processor';
 import { defineConfig, loadEnv } from 'vite';
-import { createViteProxy, getUnitConversionMultiple } from './build/config/index';
+import { createViteProxy, unitConversionProcessor } from './build/config/index';
 import createVitePlugins from './build/plugins/index';
 
 export default defineConfig(({ mode }): UserConfig => {
   const env = loadEnv(mode, fileURLToPath(new URL('./env', import.meta.url)));
-  const unitConversionMultiple = getUnitConversionMultiple(env);
+  const { VITE_APP_PORT, VITE_ENABLE_UNIT_CONVERSION, VITE_UI_SIZE, VITE_NO_CONVERSION_UNIT, VITE_DROP_CONSOLE } = env;
   const isBuild = process.env.NODE_ENV === 'production';
   return {
     envDir: './env',
@@ -18,7 +18,7 @@ export default defineConfig(({ mode }): UserConfig => {
       },
     },
     server: {
-      port: Number.parseInt(env.VITE_APP_PORT, 10),
+      port: Number.parseInt(VITE_APP_PORT, 10),
       hmr: true,
       host: true,
       open: true,
@@ -28,19 +28,7 @@ export default defineConfig(({ mode }): UserConfig => {
       postcss: {
         plugins: [
           postcssUnitProcessor({
-            processor: (value: number, unit: string) => {
-              if (!JSON.parse(env.VITE_ENABLE_UNIT_CONVERSION)) {
-                return { value, unit };
-              }
-              if (unit === 'px') {
-                value *= unitConversionMultiple;
-                unit = 'rpx';
-              }
-              else if (unit === 'mpx') {
-                unit = 'px';
-              }
-              return { value, unit };
-            },
+            processor: unitConversionProcessor(JSON.parse(VITE_ENABLE_UNIT_CONVERSION), +VITE_UI_SIZE, VITE_NO_CONVERSION_UNIT),
             unitPrecision: 5,
             propList: ['*'],
             selectorBlackList: [],
@@ -59,7 +47,7 @@ export default defineConfig(({ mode }): UserConfig => {
     },
     plugins: [createVitePlugins(isBuild)],
     esbuild: {
-      drop: JSON.parse(env.VITE_DROP_CONSOLE) ? ['console', 'debugger'] : [],
+      drop: JSON.parse(VITE_DROP_CONSOLE) ? ['console', 'debugger'] : [],
     },
     optimizeDeps: {
       exclude: process.env.UNI_PLATFORM === 'h5' && process.env.NODE_ENV === 'development' ? ['wot-design-uni'] : [],
