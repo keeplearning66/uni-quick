@@ -35,7 +35,7 @@ export default defineConfig(({ mode }): UserConfig => {
             replace: true,
             mediaQuery: false,
             exclude: /node_modules/i,
-            customUnitList: ['mpx'],
+            customUnitList: [VITE_NO_CONVERSION_UNIT],
           }),
         ],
       },
