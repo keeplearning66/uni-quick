@@ -19,6 +19,8 @@ interface ImportMetaEnv {
   VITE_UI_SIZE: string;
   /** 不转换的单位 */
   VITE_NO_CONVERSION_UNIT: string;
+  /** 单位转换结果不为整数时的保留小数位 */
+  VITE_UNIT_PRECISION: string;
 }
 
 interface ImportMeta {

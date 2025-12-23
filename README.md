@@ -3,7 +3,7 @@
 ### 特性
 
 - [x] 支持单位自动转换：
-`.env` 文件中设置 `VITE_ENABLE_UNIT_CONVERSION` (是否开启转换，默认为 `true` )和 `VITE_UI_SIZE` (设计稿尺寸，默认为 `375` )；使用 `UnoCSS` 和样式表设置元素尺寸大小时可直接使用设计稿中的 `px` 尺寸，编译后会自动转换为 `rpx` 尺寸(注意：内联样式暂时不支持转换)；如果在样式表中有部分情况不需要进行转换，可以设置并使用 `VITE_NO_CONVERSION_UNIT` (不转换的单位，默认为 `mpx` )；`UnoCSS` 扩展建议用 `0.61.6` 版本，配置 `rules` 后只有低版本才支持智能提示
+`.env` 文件中设置 `VITE_ENABLE_UNIT_CONVERSION` (是否开启转换，默认为 `true` )，`VITE_UI_SIZE` (设计稿尺寸，默认为 `375` )，`VITE_UNIT_PRECISION` (单位转换结果不为整数时的保留小数位，默认为 `2`)；使用 `UnoCSS` 和样式表设置元素尺寸大小时可直接使用设计稿中的 `px` 尺寸，编译后会自动转换为 `rpx` 尺寸(注意：内联样式暂时不支持转换)；如果在样式表中有部分情况不需要进行转换，可以设置并使用 `VITE_NO_CONVERSION_UNIT` (不转换的单位，默认为 `mpx` )；`UnoCSS` 扩展建议用 `0.61.6` 版本，配置 `rules` 后只有低版本才支持智能提示
 - [x] 集成 `wot-design-uni` 组件库
 - [x] 集成 `Pinia` 状态管理
 - [x] 集成 `Alova.js` 请求工具集
