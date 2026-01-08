@@ -13,11 +13,9 @@
 - [x] 集成 `z-paging` 组件
 - [x] 集成 `vue-i18n` 国际化插件
 - [x] 集成 `rollup-plugin-visualizer` 包体积视图分析插件
-- [x] 支持`TypeScript`
 - [x] 支持自动加载组件和 `API`
 - [x] 添加页面跳转拦截，登录权限校验
 - [x] 项目分包
-- [x] 支持多环境打包构建
 - [x] 自动校验 `git` 提交信息格式，格式如 `feat: 新增功能`，提交类型可参考 `cz.config.js`
 
 ### 目录结构
