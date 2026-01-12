@@ -18,7 +18,32 @@
 - [x] 项目分包
 - [x] 自动校验 `git` 提交信息格式，格式如 `feat: 新增功能`，提交类型可参考 `cz.config.js`
 
+### 单位转换
+*源码中还是 px 尺寸，而编译产物中是 rpx 尺寸*
+
+**UnoCSS**
+```
+class="w-20 h-20"
+// 编译后
+width: 40rpx;
+height: 40rpx;
+```
+
+**样式表**
+```
+.demo {
+  width: 20px;
+  height: 20px;
+}
+// 编译后
+.demo {
+  width: 40rpx;
+  height: 40rpx;
+}
+```
+
 ### 目录结构
+
 ```
 uni-quick
 ├ build                 vite 配置统一管理
@@ -64,7 +89,7 @@ uni-quick
 
 ### 使用方法
 
-```bash
+```shell
 # 安装依赖
 pnpm install
 
@@ -74,33 +99,35 @@ pnpm dev:mp-weixin
 
 ### 发布
 
-```bash
+```shell
 # 启动微信小程序，生产环境
 pnpm build:mp-weixin
 ```
 
 ### 代码提交
-```bash
+
+```shell
 pnpm cz
 ```
 
 ### 更新uniapp版本
 
 更新uniapp相关依赖到最新正式版
-```bash
+```shell
 pnpm uvm
 ```
 
 在升级完后，会自动添加很多无用依赖，可执行下面的代码减小保体积
-```
+```shell
 pnpm uvm-rm
 ```
 
 ### `v3` 代码块
+
 在 `vue` 文件中，输入 `v3` 按 `tab` 即可快速生成页面模板
-> 原理：基于 VSCode 代码块生成
 
 ### 登录鉴权
+
 1. 页面如果需要登录才能访问，只需在 `pages.json` 文件中需要鉴权的页面下设置 `needLogin` 属性设置为 `true` 即可，比如
 ```
 {
