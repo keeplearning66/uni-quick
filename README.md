@@ -68,27 +68,15 @@ uni-quick
 # 安装依赖
 pnpm install
 
-# 启动H5
-pnpm dev:h5
-
-# 启动微信小程序
+# 启动微信小程序，开发环境
 pnpm dev:mp-weixin
 ```
 
 ### 发布
 
 ```bash
-# 构建开发环境
-pnpm build:h5
+# 启动微信小程序，生产环境
 pnpm build:mp-weixin
-
-# 构建测试环境
-pnpm build:h5-test
-pnpm build:mp-weixin-test
-
-# 构建生产环境
-pnpm build:h5-prod
-pnpm build:mp-weixin-prod
 ```
 
 ### 代码提交
@@ -100,14 +88,10 @@ pnpm cz
 
 更新uniapp相关依赖到最新正式版
 ```bash
-npx @dcloudio/uvm@latest
-```
-或者执行下面的命令
-```bash
 pnpm uvm
 ```
 
-在升级完后，会自动添加很多无用依赖，执行下面的代码减小保体积
+在升级完后，会自动添加很多无用依赖，可执行下面的代码减小保体积
 ```
 pnpm uvm-rm
 ```
@@ -131,11 +115,3 @@ pnpm uvm-rm
   ]
 }
 ```
-
-### 注意事项
-1. 部分用户构建微信小程序如下错误，原因是微信开发者工具缺失了对应的依赖
-```
-This @babel/plugin-proposal-private-property-in-object version is not meant to
-be imported.
-```
-此时升级微信开发者工具，或者安装`@babel/plugin-proposal-private-property-in-object`依赖即可解决问题
