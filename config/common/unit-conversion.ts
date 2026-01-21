@@ -4,16 +4,16 @@ export const toFixed = (number: number, precision: number) => {
   return Math.round(wholeNumber / 10) * 10 / multiplier;
 };
 
-export const getUnitConversionMultiple = (size: number): number => {
+export const getUnitConversionRatio = (size: number): number => {
   return 750 / size;
 };
 
 export const getConversionValue = (value: number, size: number, precision: number): number => {
-  value = getUnitConversionMultiple(size) * value;
-  if (!Number.isInteger(value)) {
-    value = toFixed(value, precision);
+  let conversionValue = getUnitConversionRatio(size) * value;
+  if (!Number.isInteger(conversionValue)) {
+    conversionValue = toFixed(conversionValue, precision);
   }
-  return value;
+  return conversionValue;
 };
 
 export const createUnitConversionProcessor = (enableUnitConversion: boolean, size: number, noConversionUnit: string, precision: number) => {
