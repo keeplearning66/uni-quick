@@ -28,7 +28,7 @@
   ],
   "subPackages": [
     {
-      "root": "pages/subPackages",
+      "root": "pages/sub",
       "pages": [
         {
           "path": "404/index",
@@ -44,7 +44,7 @@
     "pages/tab/home/index": {
       "network": "all",
       "packages": [
-        "pages/subPackages"
+        "pages/sub"
       ]
     }
   },

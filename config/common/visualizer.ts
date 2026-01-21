@@ -1,6 +1,6 @@
 import { visualizer } from 'rollup-plugin-visualizer';
 
-export const VisualizerPlugin = () => {
+export const createVisualizer = () => {
   return visualizer({
     emitFile: false,
     filename: 'stats.html', // 分析图生成的文件名

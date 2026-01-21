@@ -1,6 +1,6 @@
 import Components from 'unplugin-vue-components/vite';
 
-export const AutoRegistryComponents = () => {
+export const createAutoRegistryComponents = () => {
   return Components({
     dts: 'types/components.d.ts',
   });

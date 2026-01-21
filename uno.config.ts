@@ -8,7 +8,7 @@ import {
 import { presetWeapp } from 'unocss-preset-weapp';
 import { extractorAttributify, transformerClass } from 'unocss-preset-weapp/transformer';
 import { loadEnv } from 'vite';
-import { getConversionValue } from './build/config/index';
+import { getConversionValue } from './config';
 
 const env = loadEnv('', fileURLToPath(new URL('./env', import.meta.url)));
 const { VITE_ENABLE_UNIT_CONVERSION, VITE_UI_SIZE, VITE_UNIT_PRECISION } = env;

@@ -1,7 +1,7 @@
 // 路径常量
 export const HOME_PATH = '/pages/tab/home/index';
 export const LOGIN_PATH = '/pages/login/index';
-export const ERROR404_PATH = '/pages/subPackages/404/index';
+export const ERROR404_PATH = '/pages/sub/404/index';
 
 export const TOKEN_KEY = 'token';
 export const HEADER_TOKEN_KEY = 'Authorization';

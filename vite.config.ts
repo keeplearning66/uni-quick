@@ -3,8 +3,7 @@ import process from 'node:process';
 import { fileURLToPath, URL } from 'node:url';
 import postcssUnitProcessor from 'postcss-unit-processor';
 import { defineConfig, loadEnv } from 'vite';
-import { createViteProxy, unitConversionProcessor } from './build/config/index';
-import createVitePlugins from './build/plugins/index';
+import createVitePlugins, { createUnitConversionProcessor, createViteProxy } from './config';
 
 export default defineConfig(({ mode }): UserConfig => {
   const env = loadEnv(mode, fileURLToPath(new URL('./env', import.meta.url)));
@@ -28,7 +27,7 @@ export default defineConfig(({ mode }): UserConfig => {
       postcss: {
         plugins: [
           postcssUnitProcessor({
-            processor: unitConversionProcessor(JSON.parse(VITE_ENABLE_UNIT_CONVERSION), +VITE_UI_SIZE, VITE_NO_CONVERSION_UNIT, +VITE_UNIT_PRECISION),
+            processor: createUnitConversionProcessor(JSON.parse(VITE_ENABLE_UNIT_CONVERSION), +VITE_UI_SIZE, VITE_NO_CONVERSION_UNIT, +VITE_UNIT_PRECISION),
             unitPrecision: 5,
             propList: ['*'],
             selectorBlackList: [],

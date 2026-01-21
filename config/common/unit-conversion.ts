@@ -16,7 +16,7 @@ export const getConversionValue = (value: number, size: number, precision: numbe
   return value;
 };
 
-export const unitConversionProcessor = (enableUnitConversion: boolean, size: number, noConversionUnit: string, precision: number) => {
+export const createUnitConversionProcessor = (enableUnitConversion: boolean, size: number, noConversionUnit: string, precision: number) => {
   return (value: number, unit: string) => {
     if (!enableUnitConversion) {
       return { value, unit };
