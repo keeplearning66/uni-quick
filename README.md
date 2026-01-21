@@ -12,10 +12,8 @@
 - [x] 集成 `@iconify-json/mdi` 图标库，搭配 `UnoCSS` 使用
 - [x] 集成 `z-paging` 组件
 - [x] 集成 `vue-i18n` 国际化插件
-- [x] 集成 `rollup-plugin-visualizer` 包体积视图分析插件
 - [x] 支持自动加载组件和 `API`
 - [x] 添加页面跳转拦截，登录权限校验
-- [x] 项目分包
 - [x] 自动校验 `git` 提交信息格式，格式如 `feat: 新增功能`，提交类型可参考 `cz.config.js`
 
 ### 单位转换
@@ -47,9 +45,9 @@ height: 40rpx;
 
 ```
 uni-quick
-├ build                 vite 配置统一管理
-│  ├ config
-│  └ plugins
+├ config                vite 配置管理
+│  ├ common
+│  └ dev
 ├ env                   环境变量
 ├ scripts               脚本
 │  ├ post-upgrade.js    依赖库清理
@@ -73,17 +71,17 @@ uni-quick
 ├ types                 全局 typescript 类型文件
 │  ├ auto-imports.d.ts
 │  ├ components.d.ts
+│  ├ env.d.ts
 │  ├ global.d.ts
+│  ├ i18n.d.ts
 │  └ module.d.ts
-├ LICENSE
-├ README.md
 ├ cz.config.js          cz-git 配置
 ├ eslint.config.js      eslint 配置
 ├ index.html
 ├ package.json
 ├ pnpm-lock.yaml
 ├ stylelint.config.js   stylelint 配置
-├ tsconfig.json
+├ tsconfig.json         typescript 配置
 ├ uno.config.ts         unocss 配置
 └ vite.config.ts        vite 配置
 ```
