@@ -1,4 +1,4 @@
-import type { LoadingOptions, ModalOptions, ToastOptions } from './types';
+import type { LoadingOptions, ModalOptions, showLoadingOptions, ToastOptions } from './types';
 import { t } from '../common';
 
 /**
@@ -6,7 +6,7 @@ import { t } from '../common';
  * @param {string} content 提示内容
  * @param {object} options 配置
  */
-export const showToast = (content: string, options: ToastOptions = {}) => {
+export function showToast(content: string, options: ToastOptions = {}) {
   uni.showToast({
     title: content,
     icon: 'none',
@@ -19,34 +19,39 @@ export const showToast = (content: string, options: ToastOptions = {}) => {
 /**
  * Loading
  */
-export const getLoadingHandler = (): LoadingOptions => ({
-  show: (content = t('message.loaidng')) => {
-    uni.showLoading({
-      title: content,
-      mask: true,
-    });
-  },
-  hide: () => {
-    uni.hideLoading();
-  },
-});
+export function getLoadingHandler(): LoadingOptions {
+  return {
+    show: (content = t('message.loaidng'), options: showLoadingOptions = {}) => {
+      uni.showLoading({
+        title: content,
+        mask: true,
+        ...options,
+      });
+    },
+    hide: () => {
+      uni.hideLoading();
+    },
+  };
+};
 
 /**
  * Dialog
  * @param {string} content 提示内容
  * @param {object} options 配置
  */
-export const showModal = (content: string, options: ModalOptions = {}) => {
-  options.showCancel = false;
+export function showModal(content: string, options: ModalOptions = {}) {
   return new Promise((resolve, reject) => {
     uni.showModal({
       title: t('message.modalTitle'),
       content,
-      showCancel: false,
       confirmColor: '#1677FF',
       success(res) {
-        if (res.confirm)
+        if (res.confirm) {
           resolve(res);
+        }
+        else {
+          reject(new Error(t('message.cancel')));
+        }
       },
       fail() {
         reject(new Error(t('message.callFailed')));

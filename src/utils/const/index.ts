@@ -10,9 +10,7 @@ export const HEADER_TOKEN_PREFIX = 'Bearer ';
 export const ROUTE_CHANGE_DELAY = 2000;
 export const TIMEOUT = 3000;
 
-/**
- * @description: 请求结果设置
- */
+// 响应体中的业务 code
 export enum RESULT_ENUM {
   SUCCESS = 0,
   FAIL = 10001,

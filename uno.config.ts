@@ -66,16 +66,28 @@ export default defineConfig({
     [/^mb-(\d+)$/, ([, d]) => ({ 'margin-bottom': `${getConversionValue(+d, size, precision)}${unit}` })],
     [/^ml-(\d+)$/, ([, d]) => ({ 'margin-left': `${getConversionValue(+d, size, precision)}${unit}` })],
     [/^mr-(\d+)$/, ([, d]) => ({ 'margin-right': `${getConversionValue(+d, size, precision)}${unit}` })],
-    [/^mx-(\d+)$/, ([, d]) => ({ 'margin-left': `${getConversionValue(+d, size, precision)}${unit}`, 'margin-right': `${getConversionValue(+d, size, precision)}${unit}` })],
-    [/^my-(\d+)$/, ([, d]) => ({ 'margin-top': `${getConversionValue(+d, size, precision)}${unit}`, 'margin-bottom': `${getConversionValue(+d, size, precision)}${unit}` })],
+    [/^mx-(\d+)$/, ([, d]) => ({
+      'margin-left': `${getConversionValue(+d, size, precision)}${unit}`,
+      'margin-right': `${getConversionValue(+d, size, precision)}${unit}`,
+    })],
+    [/^my-(\d+)$/, ([, d]) => ({
+      'margin-top': `${getConversionValue(+d, size, precision)}${unit}`,
+      'margin-bottom': `${getConversionValue(+d, size, precision)}${unit}`,
+    })],
     // ========== Padding 内边距 ==========
     [/^p-(\d+)$/, ([, d]) => ({ padding: `${getConversionValue(+d, size, precision)}${unit}` })],
     [/^pt-(\d+)$/, ([, d]) => ({ 'padding-top': `${getConversionValue(+d, size, precision)}${unit}` })],
     [/^pb-(\d+)$/, ([, d]) => ({ 'padding-bottom': `${getConversionValue(+d, size, precision)}${unit}` })],
     [/^pl-(\d+)$/, ([, d]) => ({ 'padding-left': `${getConversionValue(+d, size, precision)}${unit}` })],
     [/^pr-(\d+)$/, ([, d]) => ({ 'padding-right': `${getConversionValue(+d, size, precision)}${unit}` })],
-    [/^px-(\d+)$/, ([, d]) => ({ 'padding-left': `${getConversionValue(+d, size, precision)}${unit}`, 'padding-right': `${getConversionValue(+d, size, precision)}${unit}` })],
-    [/^py-(\d+)$/, ([, d]) => ({ 'padding-top': `${getConversionValue(+d, size, precision)}${unit}`, 'padding-bottom': `${getConversionValue(+d, size, precision)}${unit}` })],
+    [/^px-(\d+)$/, ([, d]) => ({
+      'padding-left': `${getConversionValue(+d, size, precision)}${unit}`,
+      'padding-right': `${getConversionValue(+d, size, precision)}${unit}`,
+    })],
+    [/^py-(\d+)$/, ([, d]) => ({
+      'padding-top': `${getConversionValue(+d, size, precision)}${unit}`,
+      'padding-bottom': `${getConversionValue(+d, size, precision)}${unit}`,
+    })],
     // ========== Width/Height 宽高 ==========
     [/^w-(\d+)$/, ([, d]) => ({ width: `${getConversionValue(+d, size, precision)}${unit}` })],
     [/^h-(\d+)$/, ([, d]) => ({ height: `${getConversionValue(+d, size, precision)}${unit}` })],
@@ -90,7 +102,12 @@ export default defineConfig({
     [/^right-(\d+)$/, ([, d]) => ({ right: `${getConversionValue(+d, size, precision)}${unit}` })],
     [/^bottom-(\d+)$/, ([, d]) => ({ bottom: `${getConversionValue(+d, size, precision)}${unit}` })],
     [/^left-(\d+)$/, ([, d]) => ({ left: `${getConversionValue(+d, size, precision)}${unit}` })],
-    [/^inset-(\d+)$/, ([, d]) => ({ top: `${getConversionValue(+d, size, precision)}${unit}`, right: `${getConversionValue(+d, size, precision)}${unit}`, bottom: `${getConversionValue(+d, size, precision)}${unit}`, left: `${getConversionValue(+d, size, precision)}${unit}` })],
+    [/^inset-(\d+)$/, ([, d]) => ({
+      top: `${getConversionValue(+d, size, precision)}${unit}`,
+      right: `${getConversionValue(+d, size, precision)}${unit}`,
+      bottom: `${getConversionValue(+d, size, precision)}${unit}`,
+      left: `${getConversionValue(+d, size, precision)}${unit}`,
+    })],
     // ========== Text 文本 ==========
     [/^text-(\d+)$/, ([, d]) => ({ 'font-size': `${getConversionValue(+d, size, precision)}${unit}` })],
     [/^leading-(\d+)$/, ([, d]) => ({ 'line-height': `${getConversionValue(+d, size, precision)}${unit}` })],

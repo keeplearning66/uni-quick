@@ -1,7 +1,6 @@
 import { createSSRApp } from 'vue';
-import App from '@/App.vue';
-import setupPlugins from '@/plugins';
-// 引入UnoCSS
+import App from './App.vue';
+import setupPlugins from './plugins';
 import 'virtual:uno.css';
 
 export function createApp() {

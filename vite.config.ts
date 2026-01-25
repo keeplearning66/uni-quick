@@ -7,7 +7,14 @@ import createVitePlugins, { createUnitConversionProcessor, createViteProxy } fro
 
 export default defineConfig(({ mode }): UserConfig => {
   const env = loadEnv(mode, fileURLToPath(new URL('./env', import.meta.url)));
-  const { VITE_APP_PORT, VITE_ENABLE_UNIT_CONVERSION, VITE_UI_SIZE, VITE_NO_CONVERSION_UNIT, VITE_UNIT_PRECISION, VITE_DROP_CONSOLE } = env;
+  const {
+    VITE_APP_PORT,
+    VITE_ENABLE_UNIT_CONVERSION,
+    VITE_UI_SIZE,
+    VITE_NO_CONVERSION_UNIT,
+    VITE_UNIT_PRECISION,
+    VITE_DROP_CONSOLE,
+  } = env;
   const isBuild = process.env.NODE_ENV === 'production';
   return {
     envDir: './env',
@@ -27,7 +34,12 @@ export default defineConfig(({ mode }): UserConfig => {
       postcss: {
         plugins: [
           postcssUnitProcessor({
-            processor: createUnitConversionProcessor(JSON.parse(VITE_ENABLE_UNIT_CONVERSION), +VITE_UI_SIZE, VITE_NO_CONVERSION_UNIT, +VITE_UNIT_PRECISION),
+            processor: createUnitConversionProcessor(
+              JSON.parse(VITE_ENABLE_UNIT_CONVERSION),
+              +VITE_UI_SIZE,
+              VITE_NO_CONVERSION_UNIT,
+              +VITE_UNIT_PRECISION,
+            ),
             unitPrecision: 5,
             propList: ['*'],
             selectorBlackList: [],

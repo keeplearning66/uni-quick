@@ -1,10 +1,11 @@
 import type { uniappRequestAdapter } from '@alova/adapter-uniapp';
 import type VueHook from 'alova/vue';
 import type { Response } from './types';
+
 import AdapterUniapp from '@alova/adapter-uniapp';
 import { createAlova } from 'alova';
 import { createServerTokenAuthentication } from 'alova/client';
-import { getTokenByStorage } from '@/utils/auth';
+import { getTokenByStorage } from '../auth';
 import { t } from '../common';
 import { HEADER_TOKEN_KEY, HEADER_TOKEN_PREFIX, LOGIN_PATH, RESULT_ENUM, ROUTE_CHANGE_DELAY, TIMEOUT } from '../const';
 import { getLoadingHandler, showToast } from '../modals';
@@ -20,7 +21,7 @@ export enum ContentTypeEnum {
   JSON = 'application/json;charset=UTF-8',
   // form-data qs
   FORM_URLENCODED = 'application/x-www-form-urlencoded;charset=UTF-8',
-  // form-data  upload
+  // form-data upload
   FORM_DATA = 'multipart/form-data;charset=UTF-8',
 }
 

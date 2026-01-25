@@ -37,13 +37,14 @@ const parseRoutes = (pagesJson = {} as any) => {
     ...parseSubPackages(pagesJson.subPackages),
   ];
 };
+
 export const routes = parseRoutes(pagesJson);
 
 /**
- * 当前路由
+ * 获取当前路由
  * @returns {string} 当前路由
  */
-export const currentRoute = () => {
+export const getCurrentRoute = () => {
   // getCurrentPages() 至少有1个元素，所以不再额外判断
   const pages = getCurrentPages();
   const currentPage = pages[pages.length - 1] as any;
@@ -70,9 +71,9 @@ export const isPathExists = (path = '') => {
 };
 
 /**
- * 是否是tabbar页面路径
+ * 是否是 tabbar 页面路径
  * @param {string} path
- * @returns {boolean} 是否是tabbar页面
+ * @returns {boolean} 是否是 tabbar 页面
  */
 export const isTabBarPath = (path = '') => {
   const cleanPath = removeQueryString(path);

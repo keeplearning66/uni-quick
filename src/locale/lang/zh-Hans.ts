@@ -21,5 +21,6 @@ export default {
     response403: '拒绝访问',
     response404: '未找到',
     response500: '服务器内部错误',
+    cancel: '取消',
   },
 };

@@ -8,8 +8,13 @@ export interface ToastOptions {
 }
 
 export interface LoadingOptions {
-  show: (content?: string) => void;
+  show: (content?: string, options?: showLoadingOptions) => void;
   hide: () => void;
+}
+
+export interface showLoadingOptions {
+  title?: string;
+  mask?: boolean;
 }
 
 export interface ModalOptions {

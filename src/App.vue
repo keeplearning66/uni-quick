@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { onLaunch } from '@dcloudio/uni-app';
 import { useAppStore } from '@/store';
-import { mpUpdate } from '@/utils/index';
+import { mpUpdate } from '@/utils';
 
 const appStore = useAppStore();
 

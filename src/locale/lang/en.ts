@@ -21,5 +21,6 @@ export default {
     response403: 'Access Denied',
     response404: 'Not Found',
     response500: 'Internal Server Error',
+    cancel: 'cancel',
   },
 };

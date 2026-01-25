@@ -13,11 +13,9 @@ const useUserStore = defineStore('user', {
     },
   },
   actions: {
-    // 设置用户的信息
     setInfo(partial: Partial<UserState>) {
       this.$patch(partial);
     },
-    // 重置用户信息
     resetInfo() {
       this.$reset();
     },
