@@ -1,4 +1,4 @@
-import { t } from '../common';
+import { t } from '@/locale';
 
 /**
  * 根据状态码，生成对应的错误信息

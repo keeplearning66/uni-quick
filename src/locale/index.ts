@@ -24,5 +24,5 @@ function setupI18n(app: App) {
   Locale.use(locale, WOT_UI_LOCALE_MAP[locale as keyof typeof WOT_UI_LOCALE_MAP]);
 }
 
-export { i18n };
 export default setupI18n;
+export const t = i18n.global.t;

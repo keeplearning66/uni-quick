@@ -1,5 +1,5 @@
 import type { LoadingOptions, ModalOptions, showLoadingOptions, ToastOptions } from './types';
-import { t } from '../common';
+import { t } from '@/locale';
 
 /**
  * Toast

@@ -1,7 +1,5 @@
-import { i18n } from '@/locale';
+import { t } from '@/locale';
 import { showModal } from '../modals';
-
-export const t = i18n.global.t;
 
 // 小程序更新检测
 export function mpUpdate() {
