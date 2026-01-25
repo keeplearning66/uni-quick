@@ -5,7 +5,7 @@ import pagesJson from '@/pages.json';
  * @param {object} pagesJson
  * @returns [{"path": "/pages/tab/home/index","needLogin": false},...]
  */
-const parseRoutes = (pagesJson = {} as any) => {
+function parseRoutes(pagesJson = {} as any) {
   if (!pagesJson.pages) {
     pagesJson.pages = [];
   }
@@ -13,7 +13,7 @@ const parseRoutes = (pagesJson = {} as any) => {
     pagesJson.subPackages = [];
   }
 
-  const parsePages = (pages = [] as any, rootPath = '') => {
+  function parsePages(pages = [] as any, rootPath = '') {
     const routes = [];
     for (let i = 0; i < pages.length; i++) {
       routes.push({
@@ -24,7 +24,7 @@ const parseRoutes = (pagesJson = {} as any) => {
     return routes;
   };
 
-  const parseSubPackages = (subPackages = [] as any) => {
+  function parseSubPackages(subPackages = [] as any) {
     const routes = [];
     for (let i = 0; i < subPackages.length; i++) {
       routes.push(...parsePages(subPackages[i].pages, subPackages[i].root));
@@ -44,7 +44,7 @@ export const routes = parseRoutes(pagesJson);
  * 获取当前路由
  * @returns {string} 当前路由
  */
-export const getCurrentRoute = () => {
+export function getCurrentRoute() {
   // getCurrentPages() 至少有1个元素，所以不再额外判断
   const pages = getCurrentPages();
   const currentPage = pages[pages.length - 1] as any;
@@ -56,7 +56,7 @@ export const getCurrentRoute = () => {
  * @param {string} path
  * @returns {string} 去除查询字符串后的路径
  */
-export const removeQueryString = (path = '') => {
+export function removeQueryString(path = '') {
   return path.split('?')[0];
 };
 
@@ -65,7 +65,7 @@ export const removeQueryString = (path = '') => {
  * @param {string} path
  * @returns {boolean} 路径是否存在
  */
-export const isPathExists = (path = '') => {
+export function isPathExists(path = '') {
   const cleanPath = removeQueryString(path);
   return routes.some(item => item.path === cleanPath);
 };
@@ -75,7 +75,7 @@ export const isPathExists = (path = '') => {
  * @param {string} path
  * @returns {boolean} 是否是 tabbar 页面
  */
-export const isTabBarPath = (path = '') => {
+export function isTabBarPath(path = '') {
   const cleanPath = removeQueryString(path);
   return (
     pagesJson.tabBar?.list?.some(
