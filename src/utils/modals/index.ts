@@ -1,11 +1,6 @@
 import type { LoadingOptions, ModalOptions, showLoadingOptions, ToastOptions } from './types';
 import { t } from '@/locale';
 
-/**
- * Toast
- * @param {string} content 提示内容
- * @param {object} options 配置
- */
 export function showToast(content: string, options: ToastOptions = {}) {
   uni.showToast({
     title: content,
@@ -16,9 +11,6 @@ export function showToast(content: string, options: ToastOptions = {}) {
   });
 };
 
-/**
- * Loading
- */
 export function getLoadingHandler(): LoadingOptions {
   return {
     show: (content = t('message.loaidng'), options: showLoadingOptions = {}) => {
@@ -34,11 +26,6 @@ export function getLoadingHandler(): LoadingOptions {
   };
 };
 
-/**
- * Dialog
- * @param {string} content 提示内容
- * @param {object} options 配置
- */
 export function showModal(content: string, options: ModalOptions = {}) {
   return new Promise((resolve, reject) => {
     uni.showModal({

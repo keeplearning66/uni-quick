@@ -13,9 +13,6 @@ import { showMessage } from './status';
 
 const loadingHandler = getLoadingHandler();
 
-/**
- * @description: contentType
- */
 export enum ContentTypeEnum {
   // json
   JSON = 'application/json;charset=UTF-8',
@@ -44,21 +41,16 @@ const { onAuthRequired, onResponseRefreshToken } = createServerTokenAuthenticati
       return status === 401;
     },
 
-    // 当 token 过期时触发，在此函数中触发刷新 token
+    // 当 token 过期时触发
     handler: (response) => {
       const status = response.statusCode;
       // 延迟跳转到登录页，否则 toast 会很快消失
       setTimeout(() => uni.reLaunch({ url: LOGIN_PATH }), ROUTE_CHANGE_DELAY);
-      // 并抛出错误
       throw new Error(showMessage(status));
     },
   },
 });
 
-/**
- * alova 请求实例
- * @link https://github.com/alovajs/alova
- */
 const alovaInstance = createAlova({
   baseURL: import.meta.env.VITE_API_BASE_URL,
   timeout: TIMEOUT,
@@ -74,7 +66,7 @@ const alovaInstance = createAlova({
     if (token) {
       config.headers[HEADER_TOKEN_KEY] = HEADER_TOKEN_PREFIX + token;
     }
-    // 是否显示 loading
+
     if (config.meta?.loading) {
       loadingHandler.show();
     }
@@ -94,13 +86,11 @@ const alovaInstance = createAlova({
       if (code === RESULT_ENUM.SUCCESS) {
         return data as any;
       }
-      // 如果没有显式定义 custom 的 toast 为 false 的话，默认对报错进行 toast 弹出提示
       if (config.meta?.toast !== false)
         showToast(message || t('message.requestFailed'));
       throw new Error(message || t('message.requestFailed'));
     }
     else {
-      // 处理 statusCode 不为 200 的情况
       if (config.meta?.toast !== false)
         showToast(showMessage(statusCode));
       throw new Error(showMessage(statusCode));

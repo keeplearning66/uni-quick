@@ -25,11 +25,8 @@ const { presetWeappAttributify, transformerAttributify } = extractorAttributify(
 
 export default defineConfig({
   presets: [
-    // https://github.com/MellowCo/unocss-preset-weapp
     presetWeapp(),
-    // attributify autocomplete
     presetWeappAttributify() as any,
-    // https://unocss.dev/presets/icons
     presetIcons({
       scale: 1.2,
       warn: true,
@@ -39,24 +36,15 @@ export default defineConfig({
       },
     }),
   ],
-  /**
-   * 自定义快捷语句
-   * @see https://github.com/unocss/unocss#shortcuts
-   */
   shortcuts: {
     center: 'flex justify-center items-center',
   },
   transformers: [
-    // 启用 @apply 功能
     transformerDirectives({
       enforce: 'pre',
     }),
-    // https://unocss.dev/transformers/variant-group
-    // 启用 () 分组功能
     transformerVariantGroup(),
-    // https://github.com/MellowCo/unocss-preset-weapp/tree/main/src/transformer/transformerAttributify
     transformerAttributify() as any,
-    // https://github.com/MellowCo/unocss-preset-weapp/tree/main/src/transformer/transformerClass
     transformerClass(),
   ],
   rules: [

@@ -1,10 +1,5 @@
 import pagesJson from '@/pages.json';
 
-/**
- * 解析路由地址
- * @param {object} pagesJson
- * @returns [{"path": "/pages/tab/home/index","needLogin": false},...]
- */
 function parseRoutes(pagesJson = {} as any) {
   if (!pagesJson.pages) {
     pagesJson.pages = [];
@@ -40,41 +35,21 @@ function parseRoutes(pagesJson = {} as any) {
 
 export const routes = parseRoutes(pagesJson);
 
-/**
- * 获取当前路由
- * @returns {string} 当前路由
- */
 export function getCurrentRoute() {
-  // getCurrentPages() 至少有1个元素，所以不再额外判断
   const pages = getCurrentPages();
   const currentPage = pages[pages.length - 1] as any;
   return currentPage?.$page?.fullPath || currentPage.route;
 };
 
-/**
- * 去除查询字符串
- * @param {string} path
- * @returns {string} 去除查询字符串后的路径
- */
 export function removeQueryString(path = '') {
   return path.split('?')[0];
 };
 
-/**
- * 路径是否存在
- * @param {string} path
- * @returns {boolean} 路径是否存在
- */
 export function isPathExists(path = '') {
   const cleanPath = removeQueryString(path);
   return routes.some(item => item.path === cleanPath);
 };
 
-/**
- * 是否是 tabbar 页面路径
- * @param {string} path
- * @returns {boolean} 是否是 tabbar 页面
- */
 export function isTabBarPath(path = '') {
   const cleanPath = removeQueryString(path);
   return (
