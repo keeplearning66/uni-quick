@@ -45,12 +45,11 @@ height: 40rpx;
 
 ```
 uni-quick
-├ config                vite 配置管理
+├ config                构建配置
 │  ├ common
 │  └ dev
 ├ env                   环境变量
 ├ scripts               脚本
-│  ├ post-upgrade.js    依赖库清理
 │  └ verify-commit.js   git 提交检验
 ├ src
 │  ├ api                接口管理
@@ -107,18 +106,6 @@ pnpm build:mp-weixin
 
 ```shell
 pnpm cz
-```
-
-### 更新uniapp版本
-
-更新uniapp相关依赖到最新正式版
-```shell
-pnpm uvm
-```
-
-在升级完后，会自动添加很多无用依赖，可执行下面的代码减小保体积
-```shell
-pnpm uvm-rm
 ```
 
 ### `v3` 代码块

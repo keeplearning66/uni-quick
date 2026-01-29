@@ -8,7 +8,7 @@ function parseRoutes(pagesJson = {} as any) {
     pagesJson.subPackages = [];
   }
 
-  function parsePages(pages = [] as any, rootPath = '') {
+  const parsePages = (pages = [] as any, rootPath = '') => {
     const routes = [];
     for (let i = 0; i < pages.length; i++) {
       routes.push({
@@ -19,7 +19,7 @@ function parseRoutes(pagesJson = {} as any) {
     return routes;
   };
 
-  function parseSubPackages(subPackages = [] as any) {
+  const parseSubPackages = (subPackages = [] as any) => {
     const routes = [];
     for (let i = 0; i < subPackages.length; i++) {
       routes.push(...parsePages(subPackages[i].pages, subPackages[i].root));

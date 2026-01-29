@@ -27,8 +27,6 @@
   },
   "scripts": {
     "preinstall": "npx only-allow pnpm",
-    "uvm": "npx @dcloudio/uvm@latest",
-    "uvm-rm": "node ./scripts/post-upgrade.js",
     "dev:h5": "uni",
     "dev:h5:ssr": "uni --ssr",
     "dev:h5-test": "uni --mode test",
