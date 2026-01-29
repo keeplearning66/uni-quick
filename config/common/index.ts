@@ -4,7 +4,7 @@ import ViteRestart from 'vite-plugin-restart';
 import { createAutoImport } from './auto-import';
 import { createAutoRegistryComponents } from './component';
 import { createUnoCSS } from './unocss';
-import { createVisualizer } from './visualizer';
+// import { createVisualizer } from './visualizer';
 
 export default function createVitePlugins(isBuild: boolean) {
   const vitePlugins: (PluginOption | PluginOption[])[] = [
@@ -22,7 +22,7 @@ export default function createVitePlugins(isBuild: boolean) {
   if (isBuild) {
     const buildPlugins: (PluginOption | PluginOption[])[] = [
       // 打包视图分析，需要的话将注释取消
-      createVisualizer(),
+      // createVisualizer(),
     ];
     vitePlugins.push(...buildPlugins);
   }
