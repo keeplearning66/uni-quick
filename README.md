@@ -32,12 +32,12 @@ height: 40rpx;
 ```
 .demo {
   width: 20px;
-  height: 20px;
+  height: 20mpx;
 }
 // 编译后
 .demo {
   width: 40rpx;
-  height: 40rpx;
+  height: 20px;
 }
 ```
 
