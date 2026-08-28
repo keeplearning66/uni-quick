@@ -61,7 +61,7 @@
 
 ## 相关文档
 
-- [项目主页](https://github.com/keeplearning66/uni-quick)
-- [问题追踪](https://github.com/keeplearning66/uni-quick/issues)
+- [项目主页](https://github.com/patienry/uni-quick)
+- [问题追踪](https://github.com/patienry/uni-quick/issues)
 
 感谢你的贡献！期待与你的合作！

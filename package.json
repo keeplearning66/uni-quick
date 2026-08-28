@@ -4,14 +4,14 @@
   "version": "1.0.0",
   "description": "可以直接使用 px 单位的 uniapp 轻量开发模板",
   "author": {
-    "name": "keeplearning66",
-    "github": "https://github.com/keeplearning66"
+    "name": "patienry",
+    "github": "https://github.com/patienry"
   },
   "license": "MIT",
-  "homepage": "https://github.com/keeplearning66/uni-quick",
+  "homepage": "https://github.com/patienry/uni-quick",
   "repository": {
     "type": "git",
-    "url": "https://github.com/keeplearning66/uni-quick.git"
+    "url": "https://github.com/patienry/uni-quick.git"
   },
   "keywords": [
     "Vue 3",
